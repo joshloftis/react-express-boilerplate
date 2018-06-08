@@ -4,7 +4,7 @@ import routes from './routes/index';
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'dist/public')));
+app.use(express.static('dist/public'));
 
 app.use('/', routes);
 
