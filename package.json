@@ -1,0 +1,74 @@
+{
+  "name": "personal-site",
+  "version": "2.0.0",
+  "description": "Personal site for Josh Loftis",
+  "main": "./dist/server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/jshlfts32/personal-site.git"
+  },
+  "keywords": [
+    "Node",
+    "React"
+  ],
+  "author": "Josh Loftis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/jshlfts32/personal-site/issues"
+  },
+  "homepage": "https://gitlab.com/jshlfts32/personal-site#README",
+  "scripts": {
+    "build": "webpack --mode=production --config config/webpack.prod.config.js",
+    "clean": "rimraf dist node_modules",
+    "dev": "concurrently 'npm run dev-server' 'npm run dev-client' --names '💻,📦' --prefix name",
+    "dev-server": "nodemon ./src/server/index.js --exec babel-node",
+    "dev-client": "NODE_ENV=development webpack-dev-server --mode=development --config config/webpack.dev.config.js --open",
+    "start": "node ./dist/server.js",
+    "test": "jest ./src"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
+  },
+  "devDependencies": {
+    "@types/enzyme": "^3.1.10",
+    "@types/enzyme-adapter-react-16": "^1.0.2",
+    "@types/jest": "^23.0.0",
+    "@types/node": "^10.3.1",
+    "@types/react": "^16.3.16",
+    "@types/react-dom": "^16.0.6",
+    "autoprefixer": "^8.6.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "concurrently": "^3.5.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.9.0",
+    "html-webpack-plugin": "^4.0.0-alpha",
+    "jest": "^23.1.0",
+    "react-test-renderer": "^16.4.0",
+    "ts-loader": "^4.3.1",
+    "typescript": "^2.9.1",
+    "webpack": "^4.10.2",
+    "webpack-cli": "^3.0.1",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-md5-hash": "^0.0.6",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./src/enzyme.setup.js",
+    "setupFiles": [
+      "raf/polyfill"
+    ]
+  }
+}
