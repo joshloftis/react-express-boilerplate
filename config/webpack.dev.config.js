@@ -8,20 +8,17 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const client = {
   entry: {
-    client: './src/client/src/index.tsx',
+    client: './src/client/src/index.js',
   },
   devtool: 'inline-source-map',
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
-        use: { loader: 'ts-loader' },
+        use: { loader: 'babel-loader' },
       },
     ],
-  },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
     filename: '[name].[hash].js',
@@ -35,9 +32,9 @@ const client = {
     inline: true,
     port: 3000,
     proxy: {
-      '/api/**': {
+      '/api': {
         target: 'http://localhost:4000',
-        pathRewrite: { '^/api': '' },
+        // pathRewrite: { '^/api': '' },
         secure: false,
         changeOrigin: true,
       },
