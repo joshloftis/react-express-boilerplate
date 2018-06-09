@@ -34,7 +34,6 @@ const client = {
     proxy: {
       '/api': {
         target: 'http://localhost:4000',
-        // pathRewrite: { '^/api': '' },
         secure: false,
         changeOrigin: true,
       },
@@ -50,6 +49,7 @@ const client = {
     new HtmlWebPackPlugin({
       template: './src/client/public/index.html',
       filename: 'index.html',
+      favicon: './src/client/public/icon.ico',
     }),
     new WebpackMd5Hash(),
   ],
