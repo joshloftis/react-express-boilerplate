@@ -1,39 +1,37 @@
 import * as React from 'react';
+import axios from 'axios';
 
-class App extends React.Component<{}, { res: string }> {
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      res: '',
-    };
-  }
+interface State {
+  test: string;
+}
+
+class App extends React.Component<{}, State> {
+  state: State = {
+    test: '',
+  };
 
   componentDidMount() {
     this.callApi()
-      .then(res => {
-        this.setState({ res: res.data });
+      .then((res: any) => {
+        this.setState({
+          test: res.data.test,
+        });
       })
-      .catch(err => console.log(err));
+      .catch((err: object) => console.log(err));
   }
 
-  callApi = async () => {
-    const response = await fetch('http://localhost:4000/api/test');
-    console.log(response);
-    const body = await response.json();
+  callApi() {
+    return axios.get('api/test');
+  }
 
-    if (response.status !== 200) throw Error(body.message);
-
-    return body;
-  };
-
-  public render() {
-    if (!this.state.res) {
-      return <div>Loading...</div>;
-    }
+  render() {
     return (
       <div>
-        <h1>Hello!</h1>
-        <p>Welcome to my site</p>
+        <header>
+          <h1>Welcome to my site</h1>
+        </header>
+        <p>{this.state.test}</p>
+        <p>Blah!</p>
       </div>
     );
   }

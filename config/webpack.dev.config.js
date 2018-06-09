@@ -35,9 +35,8 @@ const client = {
     inline: true,
     port: 3000,
     proxy: {
-      '/api/**': {
+      '/api': {
         target: 'http://localhost:4000',
-        pathRewrite: { '^/api': '' },
         secure: false,
         changeOrigin: true,
       },
