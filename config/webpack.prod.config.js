@@ -38,7 +38,6 @@ const client = {
     path: path.resolve(__dirname, "..", "dist/public")
   },
   plugins: [
-    new CleanWebpackPlugin("dist", {}),
     new MiniCssExtractPlugin({
       filename: "style.[contenthash].css"
     }),
