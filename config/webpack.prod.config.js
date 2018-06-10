@@ -1,8 +1,6 @@
 const path = require("path");
 const nodeExternals = require("webpack-node-externals");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const WebpackMd5Hash = require("webpack-md5-hash");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 const client = {
   entry: {
@@ -22,7 +20,7 @@ const client = {
     extensions: [".tsx", ".ts", ".js"]
   },
   output: {
-    filename: "[name].[hash].js",
+    filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "..", "dist/public")
   },
   plugins: [
@@ -31,8 +29,7 @@ const client = {
       template: "./src/client/public/index.html",
       filename: "index.html",
       favicon: "./src/client/public/icon.ico"
-    }),
-    new WebpackMd5Hash()
+    })
   ]
 };
 
