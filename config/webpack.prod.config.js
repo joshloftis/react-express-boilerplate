@@ -1,59 +1,57 @@
-/* eslint-disable import/no-extraneous-dependencies */
-const path = require('path');
-const nodeExternals = require('webpack-node-externals');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
-const WebpackMd5Hash = require('webpack-md5-hash');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-/* eslint-enable import/no-extraneous-dependencies */
+const path = require("path");
+const nodeExternals = require("webpack-node-externals");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const WebpackMd5Hash = require("webpack-md5-hash");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 const moduleObj = {
   rules: [
     {
       test: /\.tsx?$/,
       exclude: /node_modules/,
-      use: { loader: 'ts-loader' },
-    },
-  ],
+      use: { loader: "ts-loader" }
+    }
+  ]
 };
 
 const client = {
   entry: {
-    client: './src/client/src/index.tsx',
+    client: "./src/client/src/index.tsx"
   },
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
   module: moduleObj,
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: [".tsx", ".ts", ".js"]
   },
   output: {
-    filename: '[name].[hash].js',
-    path: path.resolve(__dirname, '..', 'dist/public'),
+    filename: "[name].[hash].js",
+    path: path.resolve(__dirname, "..", "dist/public")
   },
   plugins: [
-    new CleanWebpackPlugin('dist', {}),
+    new CleanWebpackPlugin("dist", {}),
     new HtmlWebPackPlugin({
-      template: './src/client/public/index.html',
-      filename: 'index.html',
-      favicon: './src/client/public/icon.ico',
+      template: "./src/client/public/index.html",
+      filename: "index.html",
+      favicon: "./src/client/public/icon.ico"
     }),
-    new WebpackMd5Hash(),
-  ],
+    new WebpackMd5Hash()
+  ]
 };
 
 const server = {
   entry: {
-    server: './src/server/index.ts',
+    server: "./src/server/index.ts"
   },
-  target: 'node',
+  target: "node",
   module: moduleObj,
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: [".tsx", ".ts", ".js"]
   },
   output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, '..', 'dist'),
+    filename: "[name].js",
+    path: path.resolve(__dirname, "..", "dist")
   },
-  externals: [nodeExternals()],
+  externals: [nodeExternals()]
 };
 
 module.exports = [client, server];

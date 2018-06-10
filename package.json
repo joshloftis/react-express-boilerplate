@@ -1,11 +1,11 @@
 {
-  "name": "personal-site",
+  "name": "react-express-boilerplate",
   "version": "2.0.0",
-  "description": "Personal site for Josh Loftis",
+  "description": "A (personal) boilerplate for React + Express + Typescript",
   "main": "./dist/server.js",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/jshlfts32/personal-site.git"
+    "url": "git+ssh://git@gitlab.com/jshlfts32/react-express-boilerplate.git"
   },
   "keywords": [
     "Node",
@@ -14,9 +14,9 @@
   "author": "Josh Loftis",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/jshlfts32/personal-site/issues"
+    "url": "https://gitlab.com/jshlfts32/react-express-boilerplate/issues"
   },
-  "homepage": "https://gitlab.com/jshlfts32/personal-site#README",
+  "homepage": "https://gitlab.com/jshlfts32/react-express-boilerplate#README",
   "scripts": {
     "build": "webpack --mode=production --config config/webpack.prod.config.js",
     "clean": "rimraf dist node_modules",
