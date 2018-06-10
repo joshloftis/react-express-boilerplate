@@ -4,7 +4,6 @@ const nodeExternals = require('webpack-node-externals');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 /* eslint-enable import/no-extraneous-dependencies */
 
 const client = {
@@ -23,21 +22,10 @@ const client = {
         exclude: /node_modules/,
         use: { loader: 'babel-loader' },
       },
-      {
-        test: /\.css$/,
-        use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader'],
-      },
-      {
-        test: /\.scss$/,
-        use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
-      },
     ],
   },
   plugins: [
     new CleanWebpackPlugin('dist', {}),
-    new MiniCssExtractPlugin({
-      filename: 'style.[contenthash].css',
-    }),
     new HtmlWebPackPlugin({
       template: './src/client/public/index.html',
       filename: 'index.html',
