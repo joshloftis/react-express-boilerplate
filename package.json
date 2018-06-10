@@ -1,11 +1,11 @@
 {
-  "name": "personal-site",
+  "name": "react-express-boilerplate",
   "version": "2.0.0",
-  "description": "Personal site for Josh Loftis",
+  "description": "A (personal) boilerplate for React + Express",
   "main": "./dist/server.js",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/jshlfts32/personal-site.git"
+    "url": "git+ssh://git@gitlab.com/jshlfts32/react-express-boilerplate.git"
   },
   "keywords": [
     "Node",
@@ -14,14 +14,14 @@
   "author": "Josh Loftis",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/jshlfts32/personal-site/issues"
+    "url": "https://gitlab.com/jshlfts32/react-express-boilerplate/issues"
   },
-  "homepage": "https://gitlab.com/jshlfts32/personal-site#README",
+  "homepage": "https://gitlab.com/jshlfts32/react-express-boilerplate#README",
   "scripts": {
     "build": "webpack --mode=production --config config/webpack.prod.config.js",
     "clean": "rimraf dist node_modules",
     "dev": "concurrently 'npm run dev-server' 'npm run dev-client' --names '💻,📦' --prefix name",
-    "dev-server": "nodemon ./src/server/index.js --exec babel-node",
+    "dev-server": "nodemon",
     "dev-client": "NODE_ENV=development webpack-dev-server --mode=development --config config/webpack.dev.config.js --open",
     "start": "node ./dist/server.js",
     "test": "jest ./src"
@@ -42,6 +42,7 @@
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "concurrently": "^3.5.1",
+    "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
@@ -51,7 +52,11 @@
     "eslint-plugin-react": "^7.9.0",
     "html-webpack-plugin": "^4.0.0-alpha",
     "jest": "^23.1.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.9.0",
     "react-test-renderer": "^16.4.0",
+    "sass-loader": "^7.0.3",
+    "style-loader": "^0.21.0",
     "webpack": "^4.10.2",
     "webpack-cli": "^3.0.1",
     "webpack-dev-server": "^3.1.4",
