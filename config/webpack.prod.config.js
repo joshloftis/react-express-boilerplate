@@ -3,7 +3,6 @@ const nodeExternals = require("webpack-node-externals");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const WebpackMd5Hash = require("webpack-md5-hash");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const client = {
   entry: {
@@ -13,22 +12,9 @@ const client = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
+        test: /\.(ts|tsx)?$/,
         exclude: /node_modules/,
         use: { loader: "ts-loader" }
-      },
-      {
-        test: /\.css$/,
-        use: ["style-loader", MiniCssExtractPlugin.loader, "css-loader"]
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          "style-loader",
-          MiniCssExtractPlugin.loader,
-          "css-loader",
-          "sass-loader"
-        ]
       }
     ]
   },
@@ -41,9 +27,6 @@ const client = {
   },
   plugins: [
     new CleanWebpackPlugin("dist", {}),
-    new MiniCssExtractPlugin({
-      filename: "style.[contenthash].css"
-    }),
     new HtmlWebPackPlugin({
       template: "./src/client/public/index.html",
       filename: "index.html",

@@ -23,7 +23,7 @@ This project was not intended to be entirely comphrehensive of all possible proj
 
 The main directory holds all of the configuration files (tslint, tsconfig, etc.). The `config` directory has the webpack.config dev and prod files. The `src` directory is where all of the application code lives.
 
-By default, this boilerplate is set up to use ReactJS on the frontend with either CSS or SCSS (you can choose to use either). On the backend, this boilerplate is using NodeJS and Express. Both the frontend and backend are written using Typescript.
+By default, this boilerplate is set up to use ReactJS on the frontend using styled-components. On the backend, this boilerplate is using NodeJS and Express. Both the frontend and backend are written using Typescript.
 
 A basic test suite set up using Jest and Enzyme are included.
 
@@ -83,8 +83,8 @@ git checkout master
 git checkout styled-components
 ```
 
-### To see this project with Typescript using styled-components:
+### To see this project with Typescript using CSS/SCSS:
 
 ```
-git checkout typescript-styled-components
+git checkout typescript
 ```
