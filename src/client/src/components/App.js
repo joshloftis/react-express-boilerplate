@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Title from '../styles/Title';
 
 class App extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class App extends Component {
     return (
       <div>
         <header>
-          <h1>Welcome to my site</h1>
+          <Title>Welcome to my site</Title>
         </header>
         <p>{this.state.response}</p>
       </div>

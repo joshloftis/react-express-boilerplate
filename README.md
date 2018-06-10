@@ -1,4 +1,4 @@
-## React Express Boilerplate
+## React Styled-Components Express Boilerplate
 
 In wanting to build a full stack application with ReactJS on the frontend and NodeJS + Express on the backend, I was able to many examples of boilerplate code (most probably much better than this one); however, taking that boilerplate code and using it came with many difficulties:
 
@@ -23,7 +23,7 @@ This project was not intended to be entirely comphrehensive of all possible proj
 
 The main directory holds all of the configuration files (eslintrc, babelrc, etc.). The `config` directory has the webpack.config dev and prod files. The `src` directory is where all of the application code lives.
 
-By default, this boilerplate is set up to use ReactJS on the frontend with either CSS or SCSS (you can choose to use either). On the backend, this boilerplate is using NodeJS and Express.
+By default, this boilerplate is set up to use ReactJS on the frontend and using styled-components. On the backend, this boilerplate is using NodeJS and Express.
 
 A basic test suite set up using Jest and Enzyme are included.
 
@@ -71,8 +71,20 @@ yarn start
 
 The build script will execute the webpack.config.prod and output the compiled code to the ./dist directory (frontend under ./dist/public). The start script will start the product build. Navigate to localhost:4000 to see the application live.
 
-### To see this project in Typescript:
+### To see this project in CSS/SCSS:
+
+```
+git checkout master
+```
+
+### To see this project in Typescript with CSS/SCSS:
 
 ```
 git checkout typescript
+```
+
+### To see this project in Typescript with styled-components
+
+```
+git checkout typescript-styled-components
 ```

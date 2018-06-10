@@ -30,7 +30,8 @@
     "axios": "^0.18.0",
     "express": "^4.16.3",
     "react": "^16.4.0",
-    "react-dom": "^16.4.0"
+    "react-dom": "^16.4.0",
+    "styled-components": "^3.3.2"
   },
   "devDependencies": {
     "autoprefixer": "^8.6.0",
@@ -42,7 +43,6 @@
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "concurrently": "^3.5.1",
-    "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
@@ -52,11 +52,7 @@
     "eslint-plugin-react": "^7.9.0",
     "html-webpack-plugin": "^4.0.0-alpha",
     "jest": "^23.1.0",
-    "mini-css-extract-plugin": "^0.4.0",
-    "node-sass": "^4.9.0",
     "react-test-renderer": "^16.4.0",
-    "sass-loader": "^7.0.3",
-    "style-loader": "^0.21.0",
     "webpack": "^4.10.2",
     "webpack-cli": "^3.0.1",
     "webpack-dev-server": "^3.1.4",
