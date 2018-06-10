@@ -82,3 +82,9 @@ git checkout typescript
 ```
 git checkout styled-components
 ```
+
+### To see this project in Typescript with styled-components:
+
+```
+git checkout typescript-styled-components
+```
