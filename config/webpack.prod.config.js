@@ -3,23 +3,35 @@ const nodeExternals = require("webpack-node-externals");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const WebpackMd5Hash = require("webpack-md5-hash");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-
-const moduleObj = {
-  rules: [
-    {
-      test: /\.tsx?$/,
-      exclude: /node_modules/,
-      use: { loader: "ts-loader" }
-    }
-  ]
-};
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const client = {
   entry: {
     client: "./src/client/src/index.tsx"
   },
   devtool: "inline-source-map",
-  module: moduleObj,
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: { loader: "ts-loader" }
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", MiniCssExtractPlugin.loader, "css-loader"]
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          "style-loader",
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "sass-loader"
+        ]
+      }
+    ]
+  },
   resolve: {
     extensions: [".tsx", ".ts", ".js"]
   },
@@ -29,6 +41,9 @@ const client = {
   },
   plugins: [
     new CleanWebpackPlugin("dist", {}),
+    new MiniCssExtractPlugin({
+      filename: "style.[contenthash].css"
+    }),
     new HtmlWebPackPlugin({
       template: "./src/client/public/index.html",
       filename: "index.html",
@@ -43,7 +58,15 @@ const server = {
     server: "./src/server/index.ts"
   },
   target: "node",
-  module: moduleObj,
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: { loader: "ts-loader" }
+      }
+    ]
+  },
   resolve: {
     extensions: [".tsx", ".ts", ".js"]
   },
