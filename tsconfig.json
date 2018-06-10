@@ -2,9 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "outDir": "./dist/",
-    "module": "esnext",
+    "module": "commonjs",
     "target": "es5",
     "lib": ["es6", "dom"],
+    "pretty": true,
     "sourceMap": true,
     "allowJs": true,
     "jsx": "react",

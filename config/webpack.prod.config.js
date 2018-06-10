@@ -9,36 +9,32 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const moduleObj = {
   rules: [
     {
-      test: /\.js$/,
+      test: /\.tsx?$/,
       exclude: /node_modules/,
-      use: { loader: 'babel-loader' },
+      use: { loader: 'ts-loader' },
     },
   ],
 };
 
 const client = {
   entry: {
-    client: './src/client/src/index.js',
+    client: './src/client/src/index.tsx',
   },
-  target: 'web',
+  devtool: 'inline-source-map',
+  module: moduleObj,
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
   output: {
     filename: '[name].[hash].js',
     path: path.resolve(__dirname, '..', 'dist/public'),
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: { loader: 'babel-loader' },
-      },
-    ],
   },
   plugins: [
     new CleanWebpackPlugin('dist', {}),
     new HtmlWebPackPlugin({
       template: './src/client/public/index.html',
       filename: 'index.html',
+      favicon: './src/client/public/icon.ico',
     }),
     new WebpackMd5Hash(),
   ],
@@ -46,14 +42,17 @@ const client = {
 
 const server = {
   entry: {
-    server: './src/server/index.js',
+    server: './src/server/index.ts',
   },
   target: 'node',
+  module: moduleObj,
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, '..', 'dist'),
   },
-  module: moduleObj,
   externals: [nodeExternals()],
 };
 
