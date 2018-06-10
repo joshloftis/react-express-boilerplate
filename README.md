@@ -76,3 +76,9 @@ The build script will execute the webpack.config.prod and output the compiled co
 ```
 git checkout typescript
 ```
+
+### To see this project with styled-components:
+
+```
+git checkout styled-components
+```
