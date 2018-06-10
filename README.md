@@ -70,3 +70,21 @@ yarn start
 ```
 
 The build script will execute the webpack.config.prod and output the compiled code to the ./dist directory (frontend under ./dist/public). The start script will start the product build. Navigate to localhost:4000 to see the application live.
+
+### To see the original project without Typescript using CSS/SCSS:
+
+```
+git checkout master
+```
+
+### To see this project without Typescript using styled-components:
+
+```
+git checkout styled-components
+```
+
+### To see this project with Typescript using styled-components:
+
+```
+git checkout typescript-styled-components
+```
