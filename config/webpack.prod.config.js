@@ -9,6 +9,7 @@ const client = {
     client: "./src/client/src/index.js"
   },
   target: "web",
+  devtool: "cheap-module-source-map",
   output: {
     filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "..", "dist/public")
