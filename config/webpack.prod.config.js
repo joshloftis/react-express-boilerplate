@@ -6,7 +6,7 @@ const client = {
   entry: {
     client: "./src/client/src/index.tsx"
   },
-  devtool: "inline-source-map",
+  devtool: "cheap-module-source-map",
   module: {
     rules: [
       {
