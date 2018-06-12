@@ -18,13 +18,13 @@
   },
   "homepage": "https://gitlab.com/jshlfts32/react-express-boilerplate#README",
   "scripts": {
-    "build": "webpack --mode=production --config config/webpack.prod.config.js",
+    "build": "webpack --mode=production --config config/webpack/webpack.prod.config.js",
     "clean": "rimraf dist node_modules",
     "dev": "concurrently 'npm run dev-server' 'npm run dev-client' --names '💻,📦' --prefix name",
     "dev-server": "nodemon",
-    "dev-client": "NODE_ENV=development webpack-dev-server --mode=development --config config/webpack.dev.config.js --open",
+    "dev-client": "NODE_ENV=development webpack-dev-server --mode=development --config config/webpack/webpack.dev.config.js --open",
     "start": "node ./dist/server.js",
-    "test": "jest ./src"
+    "test": "jest ./tests"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -60,9 +60,15 @@
     "webpack-node-externals": "^1.7.2"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "./src/enzyme.setup.js",
     "setupFiles": [
-      "raf/polyfill"
+      "<rootDir>/config/test/test.shim.js",
+      "<rootDir>/config/test/test.setup.js"
+    ],
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "testMatch": [
+      "<rootDir>/tests/**/*.js"
     ]
   }
 }
