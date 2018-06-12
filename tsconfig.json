@@ -19,5 +19,5 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true
   },
-  "exclude": ["node_modules", "./dist", "./tests", "./config"]
+  "exclude": ["node_modules", "./dist", "./config", "./tests"]
 }
