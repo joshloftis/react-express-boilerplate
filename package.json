@@ -18,12 +18,13 @@
   },
   "homepage": "https://gitlab.com/jshlfts32/react-express-boilerplate#README",
   "scripts": {
-    "build": "webpack --mode=production --config config/webpack.prod.config.js",
-    "clean": "rimraf dist node_modules",
-    "dev": "concurrently 'npm run dev-server' 'npm run dev-client' --names '💻,📦' --prefix name",
+    "build": "webpack -p --config ./config/webpack/webpack.prod.config.js --progress",
+    "clean": "rimraf build node_modules",
+    "dev": "concurrently 'yarn run dev-server' 'yarn run dev-client' --names '💻,📦' --prefix name",
+    "dev-client": "NODE_ENV=development webpack-dev-server --mode=development --config ./config/webpack/webpack.dev.config.js --open",
     "dev-server": "nodemon",
-    "dev-client": "NODE_ENV=development webpack-dev-server --mode=development --config config/webpack.dev.config.js --open",
-    "start": "node ./dist/server.js",
+    "lint": "eslint ./src",
+    "start": "node ./build/server.js",
     "test": "jest ./tests"
   },
   "dependencies": {
