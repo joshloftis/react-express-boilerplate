@@ -12,7 +12,7 @@ So, I decided I wanted to set up my own React + Express boilerplate code, so I c
 Feel free to clone down this repo and use it your own projects:
 
 ```
-git clone git@github.com:jshlfts32/react-express-boilerplate.git
+git clone git@github.com:joshloftis/react-express-boilerplate.git
 ```
 
 ### Basic Set up
