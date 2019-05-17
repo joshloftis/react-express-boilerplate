@@ -32,7 +32,7 @@ A basic test suite set up using Jest and Enzyme are included.
 To get started:
 
 ```
-git clone git@github.com:jshlfts32/react-express-boilerplate.git
+git clone git@github.com:joshloftus/react-express-boilerplate.git
 cd react-express-boilerplate
 npm install
 OR
